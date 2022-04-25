@@ -27,6 +27,7 @@ export const ABCDFamilyTree = () => (
         <Image
           src="/abcd-family-tree.jpg"
           alt="ABCD Family tree"
+          layout="responsive"
           width={1024}
           height={948}
         />
