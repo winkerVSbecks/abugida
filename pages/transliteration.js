@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import letters from '../data';
-import { egyptianHieroglyphs } from '../data/root';
+import { brahmi } from '../data/brahmic-scripts';
 
-let nextLang = letters.find('Egyptian hieroglyphs');
+let nextLang = letters.find('Brahmi');
 const resultLang = [];
 
 while (nextLang) {
@@ -11,25 +11,13 @@ while (nextLang) {
   nextLang = potentialNext?.value.name ? potentialNext : null;
 }
 
-console.log(letters.find('Egyptian hieroglyphs'));
-console.log(letters.find('𑀛'));
-// console.log(letters.find('ʾ'));
-console.log(letters.find('Proto-Sinaitic'));
-
 // https://observablehq.com/@d3/mobile-patent-suits
 
 const Letter = ({ value }) =>
   value.match(/(svg|png)/) ? (
     <>
       ⟨
-      <Image
-        alt={value}
-        src={value}
-        width={30}
-        height={30}
-        style={{ width: '0.75em', height: '0.75em' }}
-      />
-      ⟩
+      <Image alt={value} src={value} width={20} height={20} />⟩
     </>
   ) : (
     `⟨${value}⟩`
@@ -39,7 +27,7 @@ const Etymology = ({ letter }) => {
   const result = getEtymology(letter);
 
   return (
-    <p className="measure lh-copy f2">
+    <p className="measure lh-copy f3">
       {result.map((letter, idx) => (
         <span key={idx}>
           <Letter value={letter} />
@@ -51,8 +39,6 @@ const Etymology = ({ letter }) => {
 };
 
 export const Transliteration = () => {
-  const r2 = getEtymology('𓂧');
-
   return (
     <article className="cf ph3 ph5-ns pv5">
       <header className="fn fl-ns w-40-ns pr4-ns">
@@ -68,11 +54,9 @@ export const Transliteration = () => {
       </header>
       <div className="fn fl-ns w-60-ns">
         <p className="measure lh-copy f4">{resultLang.join(' → ')}</p>
-        {egyptianHieroglyphs.map((symbol) => (
+        {brahmi.map((symbol) => (
           <Etymology key={symbol} letter={symbol} />
         ))}
-        {/* <Etymology letter="𓃾" /> */}
-        {/* <Etymology letter="𓂧" /> */}
       </div>
     </article>
   );

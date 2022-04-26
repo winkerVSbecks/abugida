@@ -22,14 +22,7 @@ const Letter = ({ value }) =>
   value.match(/(svg|png)/) ? (
     <>
       ⟨
-      <Image
-        alt={value}
-        src={value}
-        width={30}
-        height={30}
-        style={{ width: '0.75em', height: '0.75em' }}
-      />
-      ⟩
+      <Image alt={value} src={value} width={30} height={30} />⟩
     </>
   ) : (
     `⟨${value}⟩`

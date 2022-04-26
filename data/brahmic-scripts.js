@@ -1,61 +1,110 @@
 import { lettersGraph } from './root';
 import { aramaicAlphabet } from './aramic';
 
+// (.*\n){2}
+
+const transliteration = [
+  'a',
+  'ā',
+  'i',
+  'ī',
+  'u',
+  'ū',
+  'ṛ',
+  'ṝ',
+  'e',
+  'ai',
+  'o',
+  'au',
+  'ka',
+  'kh',
+  'ga',
+  'gh',
+  'ṅa',
+  'ca',
+  'ch',
+  'ja',
+  'jh',
+  'ña',
+  'ṭa',
+  'ṭh',
+  'ḍa',
+  'ḍh',
+  'ṇa',
+  'ta',
+  'th',
+  'da',
+  'dh',
+  'na',
+  'pa',
+  'ph',
+  'ba',
+  'bh',
+  'ma',
+  'ya',
+  'ra',
+  'la',
+  'va',
+  'śa',
+  'ṣa',
+  'sa',
+  'ha',
+];
+transliteration.forEach((letter) => {
+  lettersGraph.addNode(letter, {
+    symbol: letter,
+  });
+});
+
 /**
  * Brahmi
  */
-const brahmi = [
-  '𑀅',
-  '𑀩',
-  '𑀕',
-  '𑀥',
-  '𑀳',
-  '𑀯',
-  '𑀚',
-  '𑀖',
-  '𑀣',
-  '𑀬',
-  '𑀓',
-  '𑀮',
-  '𑀫',
-  '𑀦',
-  '𑀱',
-  '𑀏',
-  '𑀧',
-  '𑀘',
-  '𑀔',
-  '𑀭',
-  '𑀰',
-  '𑀢',
-  // Brahmi not in transliteration set
+export const brahmi = [
+  '𑀅', // a
   '𑀆', // ā
   '𑀇', // i
   '𑀈', // ī
   '𑀉', // u
   '𑀊', // ū
+  '𑀋', // ṛ
+  '𑀌', // ṝ
+  '𑀏', // e
   '𑀐', // ai
   '𑀑', // o
   '𑀒', // au
-  '𑀋', // ṛ
-  '𑀌', // ṝ
-  '𑀍', // l̩
-  '𑀎', // ḹ
-  '𑀗',
-  '𑀙',
-  '𑀛',
-  '𑀜',
-  '𑀝',
-  '𑀞',
-  '𑀟',
-  '𑀠',
-  '𑀡',
-  '𑀤',
-  '𑀨',
-  '𑀪',
-  '𑀲',
-  '𑀅𑀁', // aṃ
-  '𑀅𑀂', // aḥ
-  '𑀅𑀀', // am̐
+  '𑀓', // ka
+  '𑀔', // kha
+  '𑀕', // ga
+  '𑀖', // gha
+  '𑀗', // ṅa
+  '𑀘', // ca
+  '𑀙', // cha
+  '𑀚', // ja
+  '𑀛', // jha
+  '𑀜', // ña
+  '𑀝', // ṭa
+  '𑀞', // ṭha
+  '𑀟', // ḍa
+  '𑀠', // ḍha
+  '𑀡', // ṇa
+  '𑀢', // ta
+  '𑀣', // tha
+  '𑀤', // da
+  '𑀥', // dha
+  '𑀦', // na
+  '𑀧', // pa
+  '𑀨', // pha
+  '𑀩', // ba
+  '𑀪', // bha
+  '𑀫', // ma
+  '𑀬', // ya
+  '𑀭', // ra
+  '𑀮', // la
+  '𑀯', // va
+  '𑀰', // śa
+  '𑀱', // ṣa
+  '𑀲', // sa
+  '𑀳', // ha
 ];
 
 lettersGraph.addNode('Brahmi', {
@@ -72,54 +121,64 @@ brahmi.forEach((letter, index) => {
   });
 
   lettersGraph.addLine('Brahmi', letter);
-  if (index < aramaicAlphabet.length) {
-    lettersGraph.addLine(aramaicAlphabet[index], letter);
-  }
+  lettersGraph.addLine(transliteration[index], letter);
+});
+// prettier-ignore
+[ '𑀅', '𑀩', '𑀕', '𑀥', '𑀳', '𑀯', '𑀚', '𑀖', '𑀣', '𑀬', '𑀓', '𑀮', '𑀫', '𑀦', '𑀱', '𑀏', '𑀧', '𑀘', '𑀔', '𑀭', '𑀰', '𑀢',
+].forEach((letter, index) => {
+  lettersGraph.addLine(aramaicAlphabet[index], letter);
 });
 
 /**
  * Gupta
  */
 const gupta = [
-  '/gupta/a.svg',
-  '/gupta/b.svg',
-  '/gupta/g.svg',
-  '/gupta/dh.svg',
-  '/gupta/h.svg',
-  '/gupta/v.svg',
-  '/gupta/j.svg',
-  '/gupta/gh.svg',
-  '/gupta/th.svg',
-  '/gupta/y.svg',
-  '/gupta/k.svg',
-  '/gupta/l.svg',
-  '/gupta/m.svg',
-  '/gupta/n.svg',
-  '/gupta/ss.svg',
-  '/gupta/e.svg',
-  '/gupta/p.svg',
-  '/gupta/c.svg',
-  '/gupta/kh.svg',
-  '/gupta/r.svg',
-  '/gupta/sh.svg',
-  '/gupta/t.svg',
-  // Gupta not in the aramaic set
-  '/gupta/g.svg',
-  '/gupta/ng.svg',
-  '/gupta/ch.svg',
-  '/gupta/jh.svg',
-  '/gupta/ny.svg',
-  '/gupta/tt.svg',
-  '/gupta/tth.svg',
-  '/gupta/dd.svg',
-  '/gupta/ddh.svg',
-  '/gupta/nn.svg',
-  '/gupta/d.svg',
-  '/gupta/ph.svg',
-  '/gupta/bh.svg',
-  '/gupta/s.svg',
+  '/gupta/a.svg', // a
+  '/gupta/aa.svg', // ā
+  '/gupta/i.svg', // i
+  '/gupta/ii.svg', // ī
+  '/gupta/u.svg', // u
+  '/gupta/u.svg', // ū
+  '/gupta/r-.png', // 𑀋', // ṛ
+  '/gupta/r-.png', // '𑀌', // ṝ
+  '/gupta/e.svg', // e
+  '/gupta/ai.svg', // ai
+  '/gupta/o.svg', // o
+  '/gupta/au.svg', // au
+  '/gupta/k.svg', // ka
+  '/gupta/kh.svg', // kha
+  '/gupta/g.svg', // ga
+  '/gupta/gh.svg', // gha
+  '/gupta/ng.svg', // ṅa
+  '/gupta/c.svg', // ca
+  '/gupta/ch.svg', // cha
+  '/gupta/j.svg', // ja
+  '/gupta/jh.svg', // jha
+  '/gupta/ny.svg', // ña
+  '/gupta/tt.svg', // ṭa
+  '/gupta/tth.svg', // ṭha
+  '/gupta/dd.svg', // ḍa
+  '/gupta/ddh.svg', // ḍha
+  '/gupta/nn.svg', // ṇa
+  '/gupta/t.svg', // ta
+  '/gupta/th.svg', // tha
+  '/gupta/d.svg', // da
+  '/gupta/dh.svg', // dha
+  '/gupta/n.svg', // na
+  '/gupta/p.svg', // pa
+  '/gupta/ph.svg', // pha
+  '/gupta/b.svg', // ba
+  '/gupta/bh.svg', // bha
+  '/gupta/m.svg', // ma
+  '/gupta/y.svg', // ya
+  '/gupta/r.svg', // ra
+  '/gupta/l.svg', // la
+  '/gupta/v.svg', // va
+  '/gupta/sh.svg', // śa
+  '/gupta/ss.svg', // ṣa
+  '/gupta/s.svg', // sa
+  '/gupta/h.svg', // ha
 ];
-
 lettersGraph.addNode('Gupta', {
   name: 'Gupta',
   scriptType: 'Abugida',
@@ -134,14 +193,8 @@ gupta.forEach((letter, index) => {
   });
 
   lettersGraph.addLine('Gupta', letter);
-
-  // if (brahmi[index]) {
-  //   lettersGraph.addLine(brahmi[index], letter);
-  // }
-
-  if (index < aramaicAlphabet.length) {
-    lettersGraph.addLine(brahmi[index], letter);
-  }
+  lettersGraph.addLine(brahmi[index], letter);
+  lettersGraph.addLine(transliteration[index], letter);
 });
 
 /**
@@ -153,7 +206,6 @@ lettersGraph.addNode('Siddham', {
   direction: 'left-to-right',
 });
 lettersGraph.addLine('Gupta', 'Siddham');
-// lettersGraph.addLine('Gupta', 'Siddham');
 
 const siddham = [
   '𑖀', // a
@@ -164,8 +216,6 @@ const siddham = [
   '𑖅', // ū
   '𑖆', // ṛ
   '𑖇', // ṝ
-  '𑖈', // ḷ
-  '𑖉', // ḹ
   '𑖊', // e
   '𑖋', // ai
   '𑖌', // o
@@ -205,66 +255,70 @@ const siddham = [
   '𑖮', // ha
 ];
 
+siddham.forEach((letter, index) => {
+  lettersGraph.addNode(letter, {
+    symbol: letter,
+    type: 'consonant',
+  });
+
+  lettersGraph.addLine('Siddham', letter);
+  lettersGraph.addLine(gupta[index], letter);
+  lettersGraph.addLine(transliteration[index], letter);
+});
+
 /**
  * Devanagari
  */
 const devanagari = [
-  'अ',
-  'ब',
-  'ग',
-  'ध',
-  'ह',
-  'व',
-  'ज',
-  'घ',
-  'थ',
-  'य',
-  'क',
-  'ल',
-  'म',
-  'न',
-  'ष',
-  'ए',
-  'प',
-  'च',
-  'ख',
-  'र',
-  'श',
-  'त',
-  // Devanagari not in the aramaic set
+  'अ', // a
   'आ', // ā
   'इ', // i
   'ई', // ī
   'उ', // u
   'ऊ', // ū
+  'ऋ', // ṛ
+  'ॠ', // ṝ
+  'ए', // e
   'ऐ', // ai
   'ओ', // o
   'औ', // au
-  'ऋ', // ṛ
-  'ॠ', // ṝ
-  'ऌ', // l̩
-  'ॡ', // ḹ
-  'ङ',
-  'छ',
-  'झ',
-  'ञ',
-  'ट',
-  'ठ',
-  'ड',
-  'ढ',
-  'ण',
-  'द',
-  'फ',
-  'भ',
-  'स',
-  // not in Brahmi
-  'अं', // aṃ
-  'अः', // aḥ
-  'अँ', // am̐
+  'क', // ka
+  'ख', // kh
+  'ग', // ga
+  'घ', // gh
+  'ङ', // ṅa
+  'च', // ca
+  'छ', // ch
+  'ज', // ja
+  'झ', // jh
+  'ञ', // ña
+  'ट', // ṭa
+  'ठ', // ṭh
+  'ड', // ḍa
+  'ढ', // ḍh
+  'ण', // ṇa
+  'त', // ta
+  'थ', // th
+  'द', // da
+  'ध', // dh
+  'न', // na
+  'प', // pa
+  'फ', // ph
+  'ब', // ba
+  'भ', // bh
+  'म', // ma
+  'य', // ya
+  'र', // ra
+  'ल', // la
+  'व', // va
+  'श', // śa
+  'ष', // ṣa
+  'स', // sa
+  'ह', // ha
 ];
 
 lettersGraph.addNode('Devanagari', {
-  name: 'Devanagari',
+  name: 'Devanāgarī',
   scriptType: 'Abugida',
   direction: 'left-to-right',
 });
@@ -277,12 +331,73 @@ devanagari.forEach((letter, index) => {
   });
 
   lettersGraph.addLine('Devanagari', letter);
+  lettersGraph.addLine(siddham[index], letter);
+  lettersGraph.addLine(transliteration[index], letter);
+});
 
-  if (brahmi[index]) {
-    // lettersGraph.addLine(gupta[index], letter);
-  }
+/**
+ * Gurmukhi
+ */
+const gurmukhi = [
+  'ਅ', // a
+  'ਆ', // ā
+  'ਇ', // i
+  'ਈ', // ī
+  'ਉ', // u
+  'ਊ', // ū
+  'ਰੁʼ', // ṛ
+  'ਰੂʼ', // ṝ
+  'ਏ', // e
+  'ਐ', // ai
+  'ਓ', // o
+  'ਔ', // au
+  'ਕ', // ka
+  'ਖ', // kha
+  'ਗ', // ga
+  'ਘ', // gha
+  'ਙ', // ṅa
+  'ਚ', // ca
+  'ਛ', // cha
+  'ਜ', // ja
+  'ਝ', // jha
+  'ਞ', // ña
+  'ਟ', // ṭa
+  'ਠ', // ṭha
+  'ਡ', // ḍa
+  'ਢ', // ḍha
+  'ਣ', // ṇa
+  'ਤ', // ta
+  'ਥ', // tha
+  'ਦ', // da
+  'ਧ', // dha
+  'ਨ', // na
+  'ਪ', // pa
+  'ਫ', // pha
+  'ਬ', // ba
+  'ਭ', // bha
+  'ਮ', // ma
+  'ਯ', // ya
+  'ਰ', // ra
+  'ਲ', // la
+  'ਵ', // va
+  'ਸ਼', // śa
+  'ਸ਼਼', // ṣa
+  'ਸ', // sa
+  'ਹ', // ha
+];
 
-  if (index < aramaicAlphabet.length) {
-    lettersGraph.addLine(gupta[index], letter);
-  }
+lettersGraph.addNode('Gurmukhi', {
+  name: 'Gurmukhi',
+  scriptType: 'Abugida',
+  direction: 'left-to-right',
+});
+
+gurmukhi.forEach((letter, index) => {
+  lettersGraph.addNode(letter, {
+    symbol: letter,
+    type: 'consonant',
+  });
+
+  lettersGraph.addLine('Gurmukhi', letter);
+  lettersGraph.addLine(transliteration[index], letter);
 });
