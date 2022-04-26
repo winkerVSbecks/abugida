@@ -86,14 +86,47 @@ egyptianHieroglyphs.forEach((letter, index) => {
 /**
  * Proto-Sinaitic
  */
+const protoSinaitic = [
+  '/proto-sinaitic/A.svg',
+  '/proto-sinaitic/B.svg',
+  '/proto-sinaitic/G.svg',
+  '/proto-sinaitic/D.svg', // '/proto-sinaitic/D2.svg',
+  '/proto-sinaitic/E.svg',
+  '/proto-sinaitic/W.svg',
+  '/proto-sinaitic/Z.svg',
+  '/proto-sinaitic/H.svg',
+  '/proto-sinaitic/Tet.png',
+  '/proto-sinaitic/I.svg', // '/proto-sinaitic/I2.svg',
+  '/proto-sinaitic/K.svg',
+  '/proto-sinaitic/L.svg',
+  '/proto-sinaitic/M.svg',
+  '/proto-sinaitic/N.svg',
+  '/proto-sinaitic/X.svg', // '/proto-sinaitic/X2.png',
+  '/proto-sinaitic/O.svg',
+  '/proto-sinaitic/P.svg',
+  '/proto-sinaitic/Tsade.png', // '/proto-sinaitic/Tsade2.png',
+  '/proto-sinaitic/Q.svg',
+  '/proto-sinaitic/R.svg',
+  '/proto-sinaitic/S.svg',
+  '/proto-sinaitic/T.svg',
+];
+
 lettersGraph.addNode('Proto-Sinaitic', {
   name: 'Proto-Sinaitic',
   scriptType: 'Abjad',
   direction: 'Mixed',
 });
 lettersGraph.addLine('Egyptian hieroglyphs', 'Proto-Sinaitic');
+protoSinaitic.forEach((letter, index) => {
+  lettersGraph.addNode(letter, {
+    symbol: letter,
+    type: 'consonant',
+  });
 
-// TODO
+  lettersGraph.addLine('Proto-Sinaitic', letter);
+  lettersGraph.addLine(egyptianHieroglyphs[index], letter);
+  lettersGraph.addLine(transliteration[index], letter);
+});
 
 /**
  * Phoenician alphabet
@@ -138,6 +171,6 @@ phoenicianAlphabet.forEach((letter, index) => {
   });
 
   lettersGraph.addLine('Phoenician alphabet', letter);
-  lettersGraph.addLine(egyptianHieroglyphs[index], letter);
+  lettersGraph.addLine(protoSinaitic[index], letter);
   lettersGraph.addLine(transliteration[index], letter);
 });

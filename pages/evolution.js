@@ -50,13 +50,13 @@ const Etymology = ({ letter }) => {
   );
 };
 
-export const Transliteration = () => {
+export const EvolutionOfLetters = () => {
   const r2 = getEtymology('𓂧');
 
   return (
     <article className="cf ph3 ph5-ns pv5">
       <header className="fn fl-ns w-40-ns pr4-ns">
-        <h1 className="mb3 mt0 lh-title">Transliteration</h1>
+        <h1 className="mb3 mt0 lh-title">Evolution of Letters</h1>
         <p className="measure lh-copy">
           Conversion of a text from one script to another that involves swapping
           letters (thus trans- + liter-) in predictable ways.
@@ -65,20 +65,21 @@ export const Transliteration = () => {
           For example, Greek ⟨α⟩ → ⟨a⟩, Cyrillic ⟨д⟩ → ⟨d⟩, Greek ⟨χ⟩ → the
           digraph ⟨ch⟩, Armenian ⟨ն⟩ → ⟨n⟩ or Latin ⟨æ⟩ → ⟨ae⟩.
         </p>
+        <p className="measure lh-copy">Evolution of Devanagari</p>
+        <p className="measure lh-copy">Evolution of Roman alphabet</p>
+        <p className="measure lh-copy">Evolution of Cyrillic alphabet</p>
       </header>
       <div className="fn fl-ns w-60-ns">
         <p className="measure lh-copy f4">{resultLang.join(' → ')}</p>
         {egyptianHieroglyphs.map((symbol) => (
           <Etymology key={symbol} letter={symbol} />
         ))}
-        {/* <Etymology letter="𓃾" /> */}
-        {/* <Etymology letter="𓂧" /> */}
       </div>
     </article>
   );
 };
 
-export default Transliteration;
+export default EvolutionOfLetters;
 
 function getEtymology(symbol) {
   let next = letters.find(symbol);

@@ -13,7 +13,7 @@ export const ScriptTypes = () => (
       An <b>abjad</b> is a writing system in which only consonants are
       represented, leaving vowel sounds to be inferred by the reader.
     </p>
-    <p className="measure lh-copy mb4 mt0 i">Example: Hebrew, Arabic, etc.</p>
+    <p className="measure lh-copy mb4 mt0 i">Examples: Hebrew, Arabic, etc.</p>
 
     <p className="measure lh-copy mb2">
       An <b>abugida</b>, sometimes known as alphasyllabary, neosyllabary or
@@ -22,7 +22,7 @@ export const ScriptTypes = () => (
       and vowel notation is secondary.
     </p>
     <p className="measure lh-copy mb4 mt0 i">
-      Example: Devaganari, Bengali, Tibetan, Thai, etc.
+      Examples: Devaganari, Bengali, Tibetan, Thai, etc.
     </p>
 
     <p className="measure lh-copy mb2">
@@ -30,7 +30,7 @@ export const ScriptTypes = () => (
       word or morpheme.
     </p>
     <p className="measure lh-copy mb4 mt0 i">
-      Examples: Chinese characters (hanzi in Mandarin and kanji in Japanese).
+      Examples: Chinese characters (hanzi in Mandarin and kanji in Japanese)
     </p>
 
     <p className="measure lh-copy mb2">
@@ -38,6 +38,6 @@ export const ScriptTypes = () => (
       are not arbitrary but encode phonological features of the phonemes that
       they represent.
     </p>
-    <p className="measure lh-copy mb0 mt0 i">Examples: Hangul (Korean).</p>
+    <p className="measure lh-copy mb0 mt0 i">Examples: Hangul (Korean)</p>
   </div>
 );
