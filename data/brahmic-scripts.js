@@ -3,7 +3,7 @@ import { aramaicAlphabet } from './aramic';
 
 // (.*\n){2}
 
-const transliteration = [
+export const isoSymbols = [
   'a',
   'ā',
   'i',
@@ -50,7 +50,7 @@ const transliteration = [
   'sa',
   'ha',
 ];
-transliteration.forEach((letter) => {
+isoSymbols.forEach((letter) => {
   lettersGraph.addNode(letter, {
     symbol: letter,
   });
@@ -118,10 +118,11 @@ brahmi.forEach((letter, index) => {
   lettersGraph.addNode(letter, {
     symbol: letter,
     type: 'consonant',
+    iso: isoSymbols[index],
   });
 
   lettersGraph.addLine('Brahmi', letter);
-  lettersGraph.addLine(transliteration[index], letter);
+  lettersGraph.addLine(isoSymbols[index], letter);
 });
 // prettier-ignore
 [ '𑀅', '𑀩', '𑀕', '𑀥', '𑀳', '𑀯', '𑀚', '𑀖', '𑀣', '𑀬', '𑀓', '𑀮', '𑀫', '𑀦', '𑀱', '𑀏', '𑀧', '𑀘', '𑀔', '𑀭', '𑀰', '𑀢',
@@ -138,9 +139,9 @@ const gupta = [
   '/gupta/i.svg', // i
   '/gupta/ii.svg', // ī
   '/gupta/u.svg', // u
-  '/gupta/u.svg', // ū
-  '/gupta/r-.png', // 𑀋', // ṛ
-  '/gupta/r-.png', // '𑀌', // ṝ
+  '/gupta/uu.svg', // ū
+  '/gupta/r-.png', // ṛ
+  '/gupta/r--.png', // ṝ
   '/gupta/e.svg', // e
   '/gupta/ai.svg', // ai
   '/gupta/o.svg', // o
@@ -190,11 +191,12 @@ gupta.forEach((letter, index) => {
   lettersGraph.addNode(letter, {
     symbol: letter,
     type: 'consonant',
+    iso: isoSymbols[index],
   });
 
   lettersGraph.addLine('Gupta', letter);
   lettersGraph.addLine(brahmi[index], letter);
-  lettersGraph.addLine(transliteration[index], letter);
+  lettersGraph.addLine(isoSymbols[index], letter);
 });
 
 /**
@@ -259,11 +261,12 @@ siddham.forEach((letter, index) => {
   lettersGraph.addNode(letter, {
     symbol: letter,
     type: 'consonant',
+    iso: isoSymbols[index],
   });
 
   lettersGraph.addLine('Siddham', letter);
   lettersGraph.addLine(gupta[index], letter);
-  lettersGraph.addLine(transliteration[index], letter);
+  lettersGraph.addLine(isoSymbols[index], letter);
 });
 
 /**
@@ -328,11 +331,12 @@ devanagari.forEach((letter, index) => {
   lettersGraph.addNode(letter, {
     symbol: letter,
     type: 'consonant',
+    iso: isoSymbols[index],
   });
 
   lettersGraph.addLine('Devanagari', letter);
   lettersGraph.addLine(siddham[index], letter);
-  lettersGraph.addLine(transliteration[index], letter);
+  lettersGraph.addLine(isoSymbols[index], letter);
 });
 
 /**
@@ -396,8 +400,145 @@ gurmukhi.forEach((letter, index) => {
   lettersGraph.addNode(letter, {
     symbol: letter,
     type: 'consonant',
+    iso: isoSymbols[index],
   });
 
   lettersGraph.addLine('Gurmukhi', letter);
-  lettersGraph.addLine(transliteration[index], letter);
+  lettersGraph.addLine(isoSymbols[index], letter);
+});
+
+/**
+ * Tamil
+ */
+const tamil = [
+  'அ', // a
+  'ஆ', // ā
+  'இ', // i
+  'ஈ', // ī
+  'உ', // u
+  'ஊ', // ū
+  'ருʼ', // ṛ
+  'ரூʼ', // ṝ
+  'ஏ', // e
+  'ஐ', // ai
+  'ஓ', // o
+  'ஔ', // au
+  'க', // ka
+  'க²', // kha
+  'க³', // ga
+  'க⁴', // gha
+  'ங', // ṅa
+  'ச', // ca
+  'ச²', // cha
+  'ஜ', // ja
+  'ஜ²', // jha
+  'ஞ', // ña
+  'ட', // ṭa
+  'ட²', // ṭha
+  'ட³', // ḍa
+  'ட⁴', // ḍha
+  'ண', // ṇa
+  'த', // ta
+  'த²', // tha
+  'த³', // da
+  'த⁴', // dha
+  'ந', // na
+  'ப', // pa
+  'ப²', // pha
+  'ப³', // ba
+  'ப⁴', // bha
+  'ம', // ma
+  'ய', // ya
+  'ர', // ra
+  'ல', // la
+  'வ', // va
+  'ஶ', // śa
+  'ஷ', // ṣa
+  'ஸ', // sa
+  'ஹ', // ha
+];
+
+lettersGraph.addNode('Tamil', {
+  name: 'Tamil',
+  scriptType: 'Abugida',
+  direction: 'left-to-right',
+});
+
+tamil.forEach((letter, index) => {
+  lettersGraph.addNode(letter, {
+    symbol: letter,
+    type: 'consonant',
+    iso: isoSymbols[index],
+  });
+
+  lettersGraph.addLine('Tamil', letter);
+  lettersGraph.addLine(isoSymbols[index], letter);
+});
+
+/**
+ * Thai
+ */
+const thai = [
+  'อ', // a
+  'อา', // ā
+  'อิ', // i
+  'อี', // ī
+  'อุ', // u
+  'อู', // ū
+  'ฤ', // ṛ
+  'ฤๅ', // ṝ
+  'เอ', // e
+  'ไอ', // ai
+  'โอ', // o
+  'เอา', // au
+  'ก', // ka
+  'ข', // kha
+  'ค', // ga
+  'ฆ', // gha
+  'ง', // ṅa
+  'จ', // ca
+  'ฉ', // cha
+  'ช', // ja
+  'ฌ', // jha
+  'ญ', // ña
+  'ฏ', // ṭa
+  'ฐ', // ṭha
+  'ฑ', // ḍa
+  'ฒ', // ḍha
+  'ณ', // ṇa
+  'ต', // ta
+  'ถ', // tha
+  'ท', // da
+  'ธ', // dha
+  'น', // na
+  'ป', // pa
+  'ผ', // pha
+  'พ', // ba
+  'ภ', // bha
+  'ม', // ma
+  'ย', // ya
+  'ร', // ra
+  'ล', // la
+  'ว', // va
+  'ศ', // śa
+  'ษ', // ṣa
+  'ส', // sa
+  'ห', // ha
+];
+
+lettersGraph.addNode('Thai', {
+  name: 'Thai',
+  scriptType: 'Abugida',
+  direction: 'left-to-right',
+});
+
+thai.forEach((letter, index) => {
+  lettersGraph.addNode(letter, {
+    symbol: letter,
+    type: 'consonant',
+    iso: isoSymbols[index],
+  });
+
+  lettersGraph.addLine('Thai', letter);
+  lettersGraph.addLine(isoSymbols[index], letter);
 });

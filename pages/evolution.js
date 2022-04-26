@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import letters from '../data';
 import { egyptianHieroglyphs } from '../data/root';
+import { brahmi } from '../data/brahmic-scripts';
 
 let nextLang = letters.find('Egyptian hieroglyphs');
 const resultLang = [];
@@ -65,6 +66,9 @@ export const EvolutionOfLetters = () => {
       <div className="fn fl-ns w-60-ns">
         <p className="measure lh-copy f4">{resultLang.join(' → ')}</p>
         {egyptianHieroglyphs.map((symbol) => (
+          <Etymology key={symbol} letter={symbol} />
+        ))}
+        {brahmi.map((symbol) => (
           <Etymology key={symbol} letter={symbol} />
         ))}
       </div>
