@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import lettersGraph from '../data';
 import { isoSymbols } from '../data/brahmic-scripts';
-// const isoSymbols = ['ka', 'kh', 'ga', 'gh', 'ṅa'];
 
 const Letter = ({ value }) =>
   value.match(/(svg|png)/) ? (

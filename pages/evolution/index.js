@@ -1,7 +1,8 @@
 import Image from 'next/image';
-import letters from '../data';
-import { egyptianHieroglyphs } from '../data/root';
-import { brahmi } from '../data/brahmic-scripts';
+import letters from '../../data';
+import { egyptianHieroglyphs } from '../../data/root';
+import { brahmi } from '../../data/brahmic-scripts';
+import { Evolution } from '../../components/Evolution';
 
 let nextLang = letters.find('Egyptian hieroglyphs');
 const resultLang = [];
@@ -14,7 +15,6 @@ while (nextLang) {
 
 console.log(letters.find('Egyptian hieroglyphs'));
 console.log(letters.find('𑀛'));
-// console.log(letters.find('ʾ'));
 console.log(letters.find('Proto-Sinaitic'));
 
 // https://observablehq.com/@d3/mobile-patent-suits
@@ -65,6 +65,7 @@ export const EvolutionOfLetters = () => {
       </header>
       <div className="fn fl-ns w-60-ns">
         <p className="measure lh-copy f4">{resultLang.join(' → ')}</p>
+        <Evolution />
         {egyptianHieroglyphs.map((symbol) => (
           <Etymology key={symbol} letter={symbol} />
         ))}
